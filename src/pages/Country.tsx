@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import  {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 
 import { country } from './Home';
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Box, CircularProgress } from '@mui/material';
+
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Loader from '../components/Loader';
 
 const Country = () => {
     const { name } = useParams()
@@ -39,9 +40,7 @@ setData(data)
 
       if (data.length <1)
         return (
-          <Box sx={{ display: "flex" , justifyContent:"center",  height: "50vh", alignItems:'center'  }}>
-            <CircularProgress />
-          </Box>
+          <Loader/>
         );
 const country:country = data[0]
 
@@ -72,7 +71,7 @@ const country:country = data[0]
           />
         </div>
         <div>
-          <p>
+          <p className='text-[1.2rem] leading-9'>
             The country belongs{" "}
             <span className="text-primary-300 font-semibold">
               {country?.region}

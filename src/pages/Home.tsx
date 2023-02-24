@@ -13,13 +13,13 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Box,
-  CircularProgress,
+
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Navbar from '../components/Navbar'
 import useFetch from '../hooks/useFetch'
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import Loader from '../components/Loader';
 
 export interface country {
   name: {
@@ -57,18 +57,7 @@ const Home = () => {
 
 
   if (loading || error) return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        height: "50vh",
-        alignItems: "center",
-      }}
-
-      data-testid="loader"
-    >
-      <CircularProgress />
-    </Box>
+   <Loader/>
   );
 
   if (data.length < 1) {
