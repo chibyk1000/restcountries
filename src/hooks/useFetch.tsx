@@ -17,9 +17,7 @@ const useFetch = (url:RequestInfo) => {
       (async () => {
         try {
           dispatch(setLoading(true));
-          const res = await fetch(url, {
-            mode: "no-cors"
-          });
+          const res = await fetch(url);
           const data = await res.json();
           if (data?.status === 404) {
             dispatch(setData([]));
