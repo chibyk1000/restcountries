@@ -89,7 +89,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
-        <TableContainer style={{maxHeight: "100vh"}}>
+        <TableContainer style={{maxHeight: "100vh", }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
@@ -106,7 +106,7 @@ const Home = () => {
                   console.log()
                   const languages = country?.languages !== undefined?  Object.values(country?.languages) as Array<string> : [];
                      return (
-                       <TableRow key={country.name.common}>
+                       <TableRow key={country.name.common} onClick={()=>alert('dd')}>
                          <TableCell component="th" scope="row">
                            <LazyLoadImage
                              src={country.flags.png}

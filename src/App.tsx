@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Country from './pages/Country';
 function App() {
   return (
-    <div className="App">
+    <div className="App overflow-x-hidden">
       <Routes> 
         <Route path="/" element={<Home/>} />
         <Route path="/country/:name" element={ <Country/>} />
