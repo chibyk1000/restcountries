@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Paper,
   Table,
@@ -42,7 +42,7 @@ export interface country {
 const Home = () => {
    const [page, setPage] = React.useState(0);
    const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+const navigate = useNavigate()
    const handleChangePage = (event: unknown, newPage: number) => {
      setPage(newPage);
    };
@@ -106,7 +106,12 @@ const Home = () => {
                   console.log()
                   const languages = country?.languages !== undefined?  Object.values(country?.languages) as Array<string> : [];
                      return (
-                       <TableRow key={country.name.common} onClick={()=>alert('dd')}>
+                       <TableRow
+                         key={country.name.common}
+                         onClick={() =>
+                           navigate(`/country/${country.name.common}`)
+                         }
+                       >
                          <TableCell component="th" scope="row">
                            <LazyLoadImage
                              src={country.flags.png}
