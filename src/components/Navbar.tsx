@@ -48,8 +48,8 @@ const Navbar = () => {
 
 
   return (
-    <nav className="flex justify-between bg-primary-300 text-white py-3 px-4 items-center">
-      <div className="flex gap-3 items-center">
+    <nav className="md:flex justify-between bg-primary-300 text-white py-3 px-4 items-center w-screen">
+      <div className="flex max-sm:justify-between gap-3 items-center">
         <MenuIcon fontSize="large" />
         <p className="font-semibold ">Country</p>
       </div>

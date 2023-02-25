@@ -7,7 +7,9 @@ import { Provider,useSelector } from 'react-redux';
 import {store} from '../redux/store';
 import useFetch from '../hooks/useFetch';
 import App from '../App';
-import { Console } from 'console';
+
+
+
 
 const url = 'https://restcountries.com/v3.1/all'
 
@@ -55,14 +57,13 @@ test('renders loading component', () => {
 it('should fetch data based on the url passed on to it', async () => {
   global.fetch = jest.fn()
 
-  await act(() =>
+  act(() =>
     renderHook(useFetch, {
       initialProps: url,
       wrapper, 
     }) 
   );
 
-  
   expect(global.fetch).toHaveBeenCalledWith(url)
   expect(global.fetch).toHaveBeenCalledTimes(1)
 })

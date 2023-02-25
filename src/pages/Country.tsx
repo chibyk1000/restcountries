@@ -1,5 +1,5 @@
 import  {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { country } from './Home';
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -11,7 +11,7 @@ const Country = () => {
     const { name } = useParams()
     const [data, setData] = useState([]) 
     
-    
+    const navigate = useNavigate()
     useEffect(() => {
 
         const controller = new AbortController()
@@ -58,20 +58,25 @@ const country:country = data[0]
         </div>
         <MoreVertIcon />
       </nav>
+      <div className="pl-6 my-3">
+        <button  className='bg-primary-300 text-white px-6 rounded py-2' onClick={()=> navigate(-1)}>
+         Back
+        </button>
+      </div>
 
       <section className="grid h-[90vh] mx-auto gap-4 shadow-md p-2 w-1/2 grid-rows-2">
         <div>
           <LazyLoadImage
             src={country?.flags.png}
-                      alt={country.name.common}
-                      placeholderSrc='/placeholderimage.webp'
-                      width='100%'
-                      height='100%'
-         className='w-full h-full'
+            alt={country.name.common}
+            placeholderSrc="/placeholderimage.webp"
+            width="100%"
+            height="100%"
+            className="w-full h-full"
           />
         </div>
         <div>
-          <p className='text-[1.2rem] leading-9'>
+          <p className="text-[1.2rem] leading-9">
             The country belongs{" "}
             <span className="text-primary-300 font-semibold">
               {country?.region}

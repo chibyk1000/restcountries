@@ -106,13 +106,14 @@ const navigate = useNavigate()
                   console.log()
                   const languages = country?.languages !== undefined?  Object.values(country?.languages) as Array<string> : [];
                      return (
-                       <TableRow
-                         key={country.name.common}
-                         onClick={() =>
-                           navigate(`/country/${country.name.common}`)
-                         }
-                       >
-                         <TableCell component="th" scope="row">
+                       <TableRow key={country.name.common}>
+                         <TableCell
+                           component="th"
+                           scope="row"
+                           onClick={() =>
+                             navigate(`/country/${country.name.common}`)
+                           }
+                         >
                            <LazyLoadImage
                              src={country.flags.png}
                              alt={country.name.common}
@@ -122,7 +123,12 @@ const navigate = useNavigate()
                              placeholderSrc="/placeholderimage.webp"
                            />
                          </TableCell>
-                         <TableCell align="left">
+                         <TableCell
+                           align="left"
+                           onClick={() =>
+                             navigate(`/country/${country.name.common}`)
+                           }
+                         >
                            <Link
                              to={`/country/${country.name.common}`}
                              className="hover:underline "
@@ -131,8 +137,20 @@ const navigate = useNavigate()
                              {country.name.common}
                            </Link>
                          </TableCell>
-                         <TableCell align="left">{country.region}</TableCell>
-                         <TableCell align="left">
+                         <TableCell
+                           align="left"
+                           onClick={() =>
+                             navigate(`/country/${country.name.common}`)
+                           }
+                         >
+                           {country.region}
+                         </TableCell>
+                         <TableCell
+                           align="left"
+                           onClick={() =>
+                             navigate(`/country/${country.name.common}`)
+                           }
+                         >
                            {country.population}
                          </TableCell>
                          <TableCell align="left">
